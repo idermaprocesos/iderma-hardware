@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Window
+    x:Class="HardwareRegistro.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Registro de equipos"
+    mc:Ignorable="d">
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid Language="es-ES">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TitleBar
+            x:Name="AppTitleBar"
+            Title="Registro de equipos"
+            Subtitle="Inventario de oficina"
+            BackRequested="TitleBar_BackRequested"
+            IsBackButtonVisible="{x:Bind NavFrame.CanGoBack, Mode=OneWay}"
+            IsPaneToggleButtonVisible="True"
+            PaneToggleRequested="TitleBar_PaneToggleRequested">
+            <TitleBar.IconSource>
+                <ImageIconSource ImageSource="Assets/Logo.png" />
+            </TitleBar.IconSource>
+        </TitleBar>
+
+        <NavigationView
+            x:Name="NavView"
+            Grid.Row="1"
+            AlwaysShowHeader="False"
+            IsBackButtonVisible="Collapsed"
+            IsPaneToggleButtonVisible="False"
+            IsSettingsVisible="True"
+            OpenPaneLength="240"
+            SelectionChanged="NavView_SelectionChanged">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="Todos" IsSelected="True" Tag="all">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE71D;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="PCs" Tag="pc">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE977;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Laptops" Tag="laptop">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE7F8;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Monitores" Tag="monitor">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE7F4;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Teléfonos" Tag="phone">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE8EA;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Mouses" Tag="mouse">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE962;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Cables" Tag="cable">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE839;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <Frame x:Name="NavFrame" Navigated="NavFrame_Navigated" />
+        </NavigationView>
+    </Grid>
+</Window>

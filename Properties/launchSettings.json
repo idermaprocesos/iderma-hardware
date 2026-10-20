@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "HardwareRegistro (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "HardwareRegistro (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
